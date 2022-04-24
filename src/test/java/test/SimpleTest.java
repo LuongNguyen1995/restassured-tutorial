@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class SimpleTest {
 
     public static void main(String[] args) {
-        String baseUri =   "https://jsonplaceholder.typicode.com/";
+        String baseUri = "https://jsonplaceholder.typicode.com/";
 
         //Request Scope
         RequestSpecification request = given();
@@ -16,12 +16,13 @@ public class SimpleTest {
         request.basePath("/todos");
 
         //Response scope
-        final String FIRST_TODO ="/1";
+        final String FIRST_TODO = "/1";
         Response response = request.get(FIRST_TODO); //GET
         response.prettyPrint();
 
-        response.then().body("userId",equalTo(1));
-        response.then().body("id",equalTo(1));
-        response.then().body("title",equalTo("delectus aut autem"));
-        response.then().body("completed",equalTo(false));
+        response.then().body("userId", equalTo(1));
+        response.then().body("id", equalTo(1));
+        response.then().body("title", equalTo("delectus aut autem"));
+        response.then().body("completed", equalTo(false));
     }
+}
