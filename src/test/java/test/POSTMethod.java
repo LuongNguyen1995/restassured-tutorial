@@ -18,7 +18,7 @@ public class POSTMethod {
         RequestSpecification request = given();
         request.baseUri(baseUri);
         //Content-type -> Header
-        request.header(new Header("Content-type", "application/json; charset=UTF8"));
+        request.header(new Header("Content-type", "application/json; charset=UTF-8"));
 
         //Form up request body
 //        String postBody = "{\n" +
@@ -45,7 +45,7 @@ public class POSTMethod {
 
        //Verification
        response.then().statusCode(equalTo(201));
-       response.then().statusLine(equalTo(containsStringIgnoringCase("201 Created")));
+      // response.then().statusLine(equalTo(containsStringIgnoringCase("201 Created")));
         response.then().body("userId", equalTo(1));
         response.then().body("title", equalTo("The req's title"));
         response.then().body("body", equalTo("The req's body"));

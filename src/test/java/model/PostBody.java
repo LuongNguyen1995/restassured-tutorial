@@ -1,5 +1,13 @@
 package model;
+import com.google.gson.Gson;
+import io.restassured.http.Header;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import model.PostBody;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.containsStringIgnoringCase;
+import static io.restassured.RestAssured.given;
 public class PostBody {
 
     private int userId;
@@ -7,6 +15,15 @@ public class PostBody {
     private String title;
     private String body;
 
+    public PostBody() {
+    }
+
+    public PostBody(int userId, int id, String title, String body) {
+        this.userId = userId;
+        this.id = id;
+        this.title = title;
+        this.body = body;
+    }
 
     public void setUserId(int userId) {
         this.userId = userId;
@@ -24,4 +41,29 @@ public class PostBody {
         this.body = body;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    @Override
+    public String toString() {
+        return "PostBody{" +
+                "userId=" + userId +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                '}';
+    }
 }
