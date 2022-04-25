@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import io.restassured.http.Header;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import model.BuildModelJSON;
 import model.PostBody;
 
 import java.util.Arrays;
@@ -32,8 +33,7 @@ public class PUTMethod {
 
         for (PostBody postBody : postBodies) {
             System.out.println(postBody);
-            Gson gson = new Gson();
-            String postBodyStr =  gson.toJson(postBody);
+            String postBodyStr = BuildModelJSON.parseJSONString(postBody);
 
 
             //Send request
